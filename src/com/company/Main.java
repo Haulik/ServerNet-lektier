@@ -43,32 +43,11 @@ public class Main {
             System.out.println("stop token");
 
             String tokenString = st.nextToken();
-            String fin = tokenString.substring(1,tokenString.length());
-            System.out.println(fin);
             DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
 
-
-            if (fin.equals("index.html")) {
-                String pathIndex = path + "/index.html";
+                String pathIndex = path + tokenString;
                 File file = new File(pathIndex);
                 SearchFile(dataOutputStream, file);
-            }
-            else if (fin.equals("about.html")){
-                String pathIndex = path + "/about.html";
-                File file = new File(pathIndex);
-                SearchFile(dataOutputStream, file);
-            }
-            else if (fin.equals("products.html")) {
-                String pathIndex = path + "/products.html";
-                File file = new File(pathIndex);
-                SearchFile(dataOutputStream, file);
-
-            }else{
-                String pathIndex = path + "/error.html";
-                File file = new File(pathIndex);
-                FileFound(dataOutputStream, file);
-            }
-
 
         } catch (Exception e) {
             System.out.println(e);
